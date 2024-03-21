@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BookList
+
+<div class="text-center">
+    <div class="row">
+        <h4 class="text-center"></h4>
+    </div>
+    <br>
+    @foreach (Book app in Model.Books)
+    {
+        <div class ="card m-1 p-1">
+            <h4>@app.Title
+                <span class=" badge-rounded-pill bg-primary text-white float-right"><small>@app.Price price</small></span>
+            </h4>
+        <ul>
+            Title: @app.Author
+            Publisher: @app.Publisher
+            ISBN: @app.Isbn
+            Classification: @app.Classification
+            Category: @app.Category
+            Page Count: @app.PageCount
+        </ul>
+        </div>
+    }
+
+<div class="pagination justify-content-center" page-model="@Model.PaginationInfo" page-action="Index" page-class="btn" page-class-enabled='true' page-class-normal="btn-outline-dark" 
+page-class-selected="btn-primary" class ="bt-group pull-right m-1" ></div>
